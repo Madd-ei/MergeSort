@@ -13,8 +13,18 @@ public class Main {
 		array.add(5);
 		array.add(1);
 
+		long start_m = System.nanoTime();
 		List<Integer> newArray = mergeSort(array);
+		long end_m = System.nanoTime();
 		System.out.println(newArray);
+
+		long start_n = System.nanoTime();
+		List<Integer> noSort = noSort(array);
+		long end_n = System.nanoTime();
+		System.out.println(noSort);
+
+		System.out.println("Merge Sort Execution Time (ns): " + (end_m - start_m));
+		System.out.println("No Sort Execution Time (ns): " + (end_n - start_n));
     }
 
 	private static List<Integer> mergeSort(List<Integer> a) {
@@ -54,5 +64,10 @@ public class Main {
 
 		System.out.println("New list: " + newList);
 		return newList;
+	}
+
+	private static List<Integer> noSort(List<Integer> a) {
+
+		return a;
 	}
 }
